@@ -1,22 +1,24 @@
-import { Slot } from "expo-router";
+import { Slot, router, useNavigation } from "expo-router";
 import FontLoader from "../components/utils/fontLoader";
 import styled, { ThemeProvider } from "styled-components/native";
 import { theme } from "../components/theme/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useMemo } from "react";
 interface LayoutSafeAreaProps {
-  pt: number;
-  pb: number;
-  pl: number;
-  pr: number;
+  pt?: number;
+  pb?: number;
+  pl?: number;
+  pr?: number;
 }
 
 export default function MainLayout() {
   const insets = useSafeAreaInsets();
+
   return (
     <FontLoader>
       <ThemeProvider theme={theme}>
         <LayoutSafeArea
-          pt={insets.top}
+        //   pt={insets.top}
           pb={insets.bottom}
           pl={insets.left}
           pr={insets.right}

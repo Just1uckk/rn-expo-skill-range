@@ -5,8 +5,15 @@ import Header from "../components/UI/header/header";
 import { useState } from "react";
 import DrawerComponent from "../components/UI/rightDrawer.tsx/rightDrawer";
 import Divider from "../components/UI/divider/divider";
+import LinkedinButton from "../components/UI/buttons/linkedin";
+import { AntDesign } from "@expo/vector-icons";
+import PaddingContainer from "../components/UI/containers/container";
+import { router } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function AuthPage() {
+  const insets = useSafeAreaInsets();
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,18 +21,19 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
 
   const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
+    router.push('/preferences')
+    // setDrawerOpen(!drawerOpen);
   };
 
   return (
-    <Container>
+    <Container pt={insets.top}>
       <Header toggleDrawer={toggleDrawer} />
       <Body>
-        <TitleContainer>
+        <PaddingContainer display="flex" ai="center">
           <Title>Sign up to get started</Title>
-        </TitleContainer>
-        <InputForm>
-          <InputRow>
+        </PaddingContainer>
+        <PaddingContainer pt={10}>
+          <PaddingContainer fd="row" jc="space-between" pt={20}>
             <InputColumn style={{ width: "48%" }}>
               <InputField
                 placeholder="First Name"
@@ -42,8 +50,8 @@ export default function AuthPage() {
                 autoCapitalize="none"
               />
             </InputColumn>
-          </InputRow>
-          <InputRow>
+          </PaddingContainer>
+          <PaddingContainer fd="row" jc="space-between" pt={20}>
             <InputColumn>
               <InputField
                 placeholder="Email address"
@@ -52,8 +60,8 @@ export default function AuthPage() {
                 autoCapitalize="none"
               />
             </InputColumn>
-          </InputRow>
-          <InputRow>
+          </PaddingContainer>
+          <PaddingContainer fd="row" jc="space-between" pt={20}>
             <InputColumn>
               <InputField
                 placeholder="Password"
@@ -62,24 +70,61 @@ export default function AuthPage() {
                 autoCapitalize="none"
                 secureTextEntry
               />
-              <InputFieldSubTitle>One number and 8 characters minimum</InputFieldSubTitle>
+              <InputFieldSubTitle>
+                One number and 8 characters minimum
+              </InputFieldSubTitle>
             </InputColumn>
-          </InputRow>
-        </InputForm>
-        <JoinButtonContainer>
+          </PaddingContainer>
+        </PaddingContainer>
+        <PaddingContainer display="flex" jc="center" ai="center" pt={40} pb={15}>
           <JoinButton disabled>
             <ButtonText disabled>Join for free</ButtonText>
           </JoinButton>
-        </JoinButtonContainer>
-        <Divider text="or"/>
+        </PaddingContainer>
+        <Divider text="or" />
+        <LinkedinButton
+          icon={<AntDesign name="linkedin-square" size={28} color="white" />}
+          title="Sign in with LinkedIn"
+          pt={15}
+          onPress={() => {
+            console.log("work!");
+          }}
+        />
+        <PaddingContainer
+          display="flex"
+          fd="row"
+          jc="center"
+          ai="center"
+          pt={20}
+        >
+          <ContainerText>Already on Skill Range? </ContainerText>
+          <TouchableOpacity>
+            <ContainerLinkText>Log in</ContainerLinkText>
+          </TouchableOpacity>
+        </PaddingContainer>
+        <Divider />
+        <PaddingContainer display="flex" fd="row" jc="center" ai="center">
+          <ContainerText>I accept Skill Range's </ContainerText>
+          <TouchableOpacity>
+            <ContainerLinkText>Terms of</ContainerLinkText>
+          </TouchableOpacity>
+        </PaddingContainer>
+        <PaddingContainer display="flex" fd="row" jc="center" ai="center">
+          <ContainerLinkText>Services</ContainerLinkText>
+          <ContainerText> and </ContainerText>
+          <TouchableOpacity>
+            <ContainerLinkText>Privacy policy</ContainerLinkText>
+          </TouchableOpacity>
+        </PaddingContainer>
       </Body>
       <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} />
     </Container>
   );
 }
 
-const Container = styled.View`
+const Container = styled.View<{pt?: number}>`
   height: 100%;
+  padding-top: ${props => `${props.pt}px` ? props.pt : 0};
 `;
 
 const Body = styled.View`
@@ -87,26 +132,10 @@ const Body = styled.View`
   height: 100%;
 `;
 
-const TitleContainer = styled.View`
-  width: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 const Title = styled.Text`
   font-family: ${(props) => props.theme.fonts.main};
   font-size: 24px;
   font-weight: 600;
-`;
-
-const InputForm = styled.View`
-padding-top: 20px;
-`;
-
-const InputRow = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 20px;
 `;
 
 const InputColumn = styled.View`
@@ -126,27 +155,34 @@ const InputFieldSubTitle = styled.Text`
   font-family: ${(props) => props.theme.fonts.main};
 `;
 
-const JoinButtonContainer = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 0 20px 0;
-`;
-
-const JoinButton = styled.TouchableOpacity<{disabled: boolean}>`
-  background-color: ${(props) => props.disabled ? 'lightgray' : '#21CE99'};
+const JoinButton = styled.TouchableOpacity<{ disabled: boolean }>`
+  background-color: ${(props) => (props.disabled ? "lightgray" : "#21CE99")};
   width: 90%;
   padding: 18px;
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   align-items: center;
   border-radius: 12px;
-  opacity: ${(props) => props.disabled ? '0.5' : '1'};
-`
-const ButtonText = styled.Text<{disabled: boolean}>`
+  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
+`;
+
+const ButtonText = styled.Text<{ disabled: boolean }>`
   font-family: ${(props) => props.theme.fonts.main};
   font-size: 22px;
   font-weight: 800;
-  color: ${(props) => props.disabled ? 'gray' : 'wthite'};
-  opacity: ${(props) => props.disabled ? '0.5' : '1'};
-`
+  color: ${(props) => (props.disabled ? "gray" : "wthite")};
+  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
+`;
+
+const ContainerText = styled.Text`
+  font-family: ${(props) => props.theme.fonts.main};
+  font-size: 16px;
+  font-weight: 600;
+`;
+
+const ContainerLinkText = styled.Text`
+  color: ${(props) => props.theme.colors.mainFirst};
+  font-family: ${(props) => props.theme.fonts.main};
+  font-size: 16px;
+  font-weight: 600;
+`;
