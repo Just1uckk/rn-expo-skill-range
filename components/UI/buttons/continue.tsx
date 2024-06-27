@@ -42,22 +42,16 @@ const ContinueButton: FunctionComponent<ContinueButtonProps> = ({
   }, []);
 
   return (
-    <ContinueButtonContainer
-      isHide={keyboardOpen}
-      pt={pt}
-      pb={pb}
-      pl={pl}
-      pr={pr}
-    >
-      <ContinueButtonComponent disabled={disabled}>
+    <ContinueButtonContainer pt={pt} pb={pb} pl={pl} pr={pr}>
+      <ContinueButtonComponent isHide={keyboardOpen} disabled={disabled}>
         <ButtonText disabled={disabled}>{title}</ButtonText>
       </ContinueButtonComponent>
     </ContinueButtonContainer>
   );
 };
 
-const ContinueButtonContainer = styled.View<PaddingProps & { isHide: boolean }>`
-  display: ${(props) => (props.isHide ? "none" : "unset")};
+const ContinueButtonContainer = styled.View<PaddingProps>`
+  display: none;
   margin-top: auto;
   width: 100%;
   display: flex;
@@ -67,12 +61,15 @@ const ContinueButtonContainer = styled.View<PaddingProps & { isHide: boolean }>`
   padding-left: ${(props) => props.pl}px;
 `;
 
-const ContinueButtonComponent = styled.TouchableOpacity<{ disabled: boolean }>`
+const ContinueButtonComponent = styled.TouchableOpacity<{
+  disabled: boolean;
+  isHide: boolean;
+}>`
   background-color: ${(props) =>
     props.disabled ? "lightgray" : props.theme.colors.mainFirst};
   width: 100%;
   padding: 14px;
-  display: flex;
+  display: ${(props) => (props.isHide ? "none" : "flex")};
   flex-direction: row;
   justify-content: center;
   align-items: center;

@@ -1,5 +1,4 @@
-import { FunctionComponent, useState } from "react";
-import { Text } from "react-native";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import styled from "styled-components/native";
 import PaddingContainer from "../../components/UI/containers/container";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -7,6 +6,7 @@ import PreferencesHeader from "../../components/UI/header/preferencesHeader";
 import { router } from "expo-router";
 import InterractiveInput from "../../components/UI/input/interractiveInput";
 import ContinueButton from "../../components/UI/buttons/continue";
+import { GlobalContext } from "../../components/utils/state/globalState";
 
 const LanguageList = [
   { id: 1, title: "English" },
@@ -27,7 +27,16 @@ interface PreferencesProps {}
 
 const Preferences: FunctionComponent<PreferencesProps> = () => {
   const insets = useSafeAreaInsets();
-  const [name, setName] = useState("Jessica");
+
+  const context = useContext(GlobalContext);
+
+  if (!context) {
+    throw new Error("SomeComponent must be used within a GlobalProvider");
+  }
+
+  const { state, setState } = context;
+
+  const [name, setName] = useState(state.user ? state.user.first_name : "");
   const [card, setCard] = useState(LanguageList[0].id);
   return (
     <Container pt={insets.top}>

@@ -4,9 +4,9 @@ import styled from "styled-components/native";
 
 export default function PreferencesLayout() {
   return (
-    <Container>
+    <>
       <BackgroundImage
-        resizeMode="cover"
+        resizeMode="stretch"
         source={{
           uri: Asset.fromModule(require("../../assets/images/background.png"))
             .uri,
@@ -14,14 +14,13 @@ export default function PreferencesLayout() {
       >
         <Slot />
       </BackgroundImage>
-    </Container>
+    </>
   );
 }
 
-const Container = styled.View`
-  height: 100%;
-`;
-
 const BackgroundImage = styled.ImageBackground`
+  position: absolute;
+  top: 0;
+  height:100%;
   flex: 1;
 `;
