@@ -1,18 +1,52 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import styled from "styled-components/native";
 import PaddingContainer from "../containers/container";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { TouchableHighlight } from "react-native";
 
-interface InterractiveInputProps {}
+interface InterractiveInputProps {
+  value: string;
+  handleChange: (newName: string) => void;
+}
 
-const InterractiveInput: FunctionComponent<InterractiveInputProps> = () => {
+const InterractiveInput: FunctionComponent<InterractiveInputProps> = ({
+  value,
+  handleChange,
+}) => {
+  const [isShowInput, setIsShowInput] = useState(false);
   return (
     <PaddingContainer pt={20}>
       <GrayContainer>
-        <ContainerText>Jessica</ContainerText>
+        {isShowInput ? (
+          <GrayInput value={value} onChangeText={handleChange} />
+        ) : (
+          <ContainerText>{value}</ContainerText>
+        )}
+        {/* <ContainerText>{name}</ContainerText> */}
         <LabelText>First Name</LabelText>
         <IconContainer>
-        <MaterialCommunityIcons name="pencil-box-multiple-outline" size={24} color="black" />
+          {isShowInput ? (
+            <TouchableHighlight
+              onPress={() => {
+                setIsShowInput(false);
+              }}
+            >
+              <AntDesign name="check" size={24} color="black" />
+            </TouchableHighlight>
+          ) : (
+            <TouchableHighlight
+              onPress={() => {
+                setIsShowInput(true);
+              }}
+            >
+              <MaterialCommunityIcons
+                name="pencil-box-multiple-outline"
+                size={24}
+                color="black"
+              />
+            </TouchableHighlight>
+          )}
         </IconContainer>
       </GrayContainer>
     </PaddingContainer>
@@ -41,9 +75,15 @@ const LabelText = styled.Text`
 `;
 
 const IconContainer = styled.View`
-    position: absolute;
-    right: 10px;
-    top:28%;
-`
+  position: absolute;
+  right: 10px;
+  top: 28%;
+`;
+
+const GrayInput = styled.TextInput`
+  font-family: ${(props) => props.theme.fonts.main};
+  font-size: 20px;
+  padding: 18px 10px 8px 10px;
+`;
 
 export default InterractiveInput;
