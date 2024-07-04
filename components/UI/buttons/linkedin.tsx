@@ -65,7 +65,7 @@ const ButtonText = styled.Text<{ disabled: boolean }>`
 `;
 
 const IconWrapper = styled.View`
-  margin-right: 8px;  // Добавлено для отступа между иконкой и текстом
+  margin-right: 8px;
 `;
 
 export default LinkedinButton;

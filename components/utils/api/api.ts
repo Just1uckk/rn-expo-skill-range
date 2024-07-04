@@ -1,6 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { API_BASE_URL } from '@env';
+// import { API_BASE_URL } from '@env';
 import { BaseInterface } from './base';
+
+const API_BASE_URL = 'https://stage.skillrange.com/api/models_api'
 
 interface ApiInterface {
   doGet(

@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import Logo from "../../../assets/images/Skill Range Logo.svg";
 import { FontAwesome } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
-import SkillRangeLogo from "@/components/icons/SkillRangeLogo";
+import SkillRangeLogo from "../../../components/icons/SkillRangeLogo";
 
 interface HeaderProps {
   toggleDrawer: () => void
