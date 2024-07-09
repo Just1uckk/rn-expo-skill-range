@@ -12,6 +12,7 @@ import { router } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import API from "../components/utils/api";
 import { GlobalContext } from "../components/utils/state/globalState";
+import TextField from "../components/UI/textField/textField";
 
 export default function AuthPage() {
   const insets = useSafeAreaInsets();
@@ -36,7 +37,7 @@ export default function AuthPage() {
   };
 
   const handleRegister = async () => {
-    setError(undefined)
+    setError(undefined);
     const response = await API.base?.register({
       user: {
         email,
@@ -55,7 +56,7 @@ export default function AuthPage() {
       });
       router.push("/preferences");
     } else {
-      setError(response.error)
+      setError(response.error);
     }
   };
 
@@ -64,7 +65,7 @@ export default function AuthPage() {
       <Header toggleDrawer={toggleDrawer} />
       <Body>
         <PaddingContainer display="flex" ai="center">
-          <Title>Sign up to get started</Title>
+          <TextField fs={24}>Sign up to get started</TextField>
         </PaddingContainer>
         <PaddingContainer pt={10}>
           <PaddingContainer fd="row" jc="space-between" pt={20}>
@@ -104,10 +105,17 @@ export default function AuthPage() {
                 autoCapitalize="none"
                 secureTextEntry
               />
-              <InputFieldSubTitle>
-                One number and 8 characters minimum
-              </InputFieldSubTitle>
-              {error && <PaddingContainer pt={10} display="flex" jc="center" ai="center"><ErrorText>{error}</ErrorText></PaddingContainer>}
+              <TextField fs={12}>One number and 8 characters minimum</TextField>
+              {error && (
+                <PaddingContainer
+                  pt={10}
+                  display="flex"
+                  jc="center"
+                  ai="center"
+                >
+                  <TextField c={"red"}>{error}</TextField>
+                </PaddingContainer>
+              )}
             </InputColumn>
           </PaddingContainer>
         </PaddingContainer>
@@ -122,11 +130,16 @@ export default function AuthPage() {
             onPress={handleRegister}
             disabled={!(firstName && lastName && email && password)}
           >
-            <ButtonText
-              disabled={!(firstName && lastName && email && password)}
+            <TextField
+              fs={22}
+              fw={800}
+              c={
+                !(firstName && lastName && email && password) ? "gray" : "white"
+              }
+              o={!(firstName && lastName && email && password) ? 0.5 : 1}
             >
               Join for free
-            </ButtonText>
+            </TextField>
           </JoinButton>
         </PaddingContainer>
         <Divider text="or" />
@@ -145,23 +158,23 @@ export default function AuthPage() {
           ai="center"
           pt={20}
         >
-          <ContainerText>Already on Skill Range? </ContainerText>
+          <TextField fs={16}>Already on Skill Range? </TextField>
           <TouchableOpacity>
-            <ContainerLinkText>Log in</ContainerLinkText>
+            <TextField c={'#21CE99'}>Log in</TextField>
           </TouchableOpacity>
         </PaddingContainer>
         <Divider />
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
-          <ContainerText>I accept Skill Range's </ContainerText>
+          <TextField fs={16}>I accept Skill Range's </TextField>
           <TouchableOpacity>
-            <ContainerLinkText>Terms of</ContainerLinkText>
+            <TextField c={'#21CE99'}>Terms of</TextField>
           </TouchableOpacity>
         </PaddingContainer>
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
-          <ContainerLinkText>Services</ContainerLinkText>
-          <ContainerText> and </ContainerText>
+          <TextField c={'#21CE99'}>Services</TextField>
+          <TextField fs={16}> and </TextField>
           <TouchableOpacity>
-            <ContainerLinkText>Privacy policy</ContainerLinkText>
+            <TextField c={'#21CE99'}>Privacy policy</TextField>
           </TouchableOpacity>
         </PaddingContainer>
       </Body>
@@ -180,12 +193,6 @@ const Body = styled.View`
   height: 100%;
 `;
 
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 24px;
-  font-weight: 600;
-`;
-
 const InputColumn = styled.View`
   width: 100%;
 `;
@@ -194,12 +201,6 @@ const InputField = styled.TextInput`
   padding: 5px 15px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  font-family: ${(props) => props.theme.fonts.main};
-`;
-
-const InputFieldSubTitle = styled.Text`
-  font-size: 12px;
-  font-weight: 600;
   font-family: ${(props) => props.theme.fonts.main};
 `;
 
@@ -213,30 +214,3 @@ const JoinButton = styled.TouchableOpacity<{ disabled: boolean }>`
   border-radius: 12px;
   opacity: ${(props) => (props.disabled ? "0.5" : "1")};
 `;
-
-const ButtonText = styled.Text<{ disabled: boolean }>`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 22px;
-  font-weight: 800;
-  color: ${(props) => (props.disabled ? "gray" : "white")};
-  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
-`;
-
-const ContainerText = styled.Text`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 16px;
-  font-weight: 600;
-`;
-
-const ContainerLinkText = styled.Text`
-  color: ${(props) => props.theme.colors.mainFirst};
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 16px;
-  font-weight: 600;
-`;
-
-const ErrorText = styled.Text`
-  color: red;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 16px;
-`

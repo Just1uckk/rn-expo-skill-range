@@ -7,27 +7,13 @@ import { router } from "expo-router";
 import InterractiveInput from "../../components/UI/input/interractiveInput";
 import ContinueButton from "../../components/UI/buttons/continue";
 import { GlobalContext } from "../../components/utils/state/globalState";
-
-const LanguageList = [
-  { id: 1, title: "English" },
-  { id: 2, title: "French" },
-  { id: 3, title: "German" },
-  { id: 4, title: "Spanish" },
-  { id: 5, title: "Arabic" },
-  { id: 6, title: "Dutch" },
-  { id: 7, title: "Hindi" },
-  { id: 8, title: "Russian" },
-  { id: 9, title: "Korean" },
-  { id: 10, title: "Portuguese" },
-  { id: 11, title: "Mandarin" },
-  { id: 12, title: "Japanese" },
-];
+import TextField from "../../components/UI/textField/textField";
+import { LanguageList } from "../../components/constants/constants";
 
 interface PreferencesProps {}
 
 const Preferences: FunctionComponent<PreferencesProps> = () => {
   const insets = useSafeAreaInsets();
-
   const context = useContext(GlobalContext);
 
   if (!context) {
@@ -38,22 +24,21 @@ const Preferences: FunctionComponent<PreferencesProps> = () => {
 
   const [name, setName] = useState(state.user ? state.user.first_name : "");
   const [card, setCard] = useState(LanguageList[0].id);
+
   return (
     <Container pt={insets.top}>
       <PreferencesHeader
         toggleBack={router.back}
-        toggleDrawer={() => {
-          "work";
-        }}
+        toggleDrawer={() => {}}
       />
       <PaddingContainer pt={75}>
-        <PreInputText>What should we call you?</PreInputText>
+        <TextField fs={20}>What should we call you?</TextField>
       </PaddingContainer>
       <InterractiveInput value={name} handleChange={setName} />
       <PaddingContainer pt={50}>
-        <PreInputText>
+        <TextField fs={20}>
           Please select your preferred language for your AI conversations?
-        </PreInputText>
+        </TextField>
       </PaddingContainer>
       <CardContainer>
         {LanguageList.map((element) => (
@@ -64,25 +49,18 @@ const Preferences: FunctionComponent<PreferencesProps> = () => {
               setCard(element.id);
             }}
           >
-            <CardText isActive={card === element.id}>{element.title}</CardText>
+            <TextField fs={18} c={(card === element.id) ? "white" : "#0F0F0F"}>{element.title}</TextField>
           </Card>
         ))}
       </CardContainer>
       <ContinueButton
         pb={insets.bottom + 15}
-        onPress={() => {
-          console.log("continue");
-        }}
+        onPress={() => {}}
         title="Continue"
       />
     </Container>
   );
 };
-
-const PreInputText = styled.Text`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 20px;
-`;
 
 const Container = styled.View<{ pt?: number }>`
   padding-top: ${(props) => (props.pt ? `${props.pt}px` : 0)};
@@ -110,12 +88,6 @@ const Card = styled.TouchableHighlight<{ isActive: boolean }>`
   margin-top: 10px;
   width: 30%;
   background-color: ${(props) => (props.isActive ? "#0F0F0F" : "transparent")};
-`;
-
-const CardText = styled.Text<{ isActive: boolean }>`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 18px;
-  color: ${(props) => (props.isActive ? "white" : "#0F0F0F")};
 `;
 
 export default Preferences;

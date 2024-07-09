@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
-import PaddingContainer from "../containers/container";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import TextField from "../textField/textField";
 
 interface PreferencesHeaderProps {
   toggleDrawer: () => void;
@@ -26,7 +26,7 @@ const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({
         </TouchableOpacity>
       </HeaderColumn>
       <HeaderColumn width="70%">
-        <HeaderText>Preferences</HeaderText>
+        <TextField fs={20} c={'white'}>Preferences</TextField>
       </HeaderColumn>
       <HeaderColumn style={{ alignItems: "flex-end" }} width="15%">
         <TouchableOpacity onPress={toggleDrawer}>
@@ -42,12 +42,6 @@ const HeaderContainer = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-`;
-
-const HeaderText = styled.Text`
-  color: white;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 20px;
 `;
 
 const HeaderColumn = styled.View<{ width: string }>`
