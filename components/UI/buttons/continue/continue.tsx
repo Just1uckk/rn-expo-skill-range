@@ -1,14 +1,8 @@
-import { FunctionComponent, ReactElement, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components/native";
-import { PaddingProps } from "./linkedin";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { PaddingProps } from "../../../glogalInterfaces/interfaces";
 import { Keyboard } from "react-native";
-
-interface ContinueButtonProps extends PaddingProps {
-  title: string;
-  disabled?: boolean;
-  onPress: () => void;
-}
+import { ContinueButtonProps } from "./interfaces";
 
 const ContinueButton: FunctionComponent<ContinueButtonProps> = ({
   pt,
@@ -55,10 +49,10 @@ const ContinueButtonContainer = styled.View<PaddingProps>`
   margin-top: auto;
   width: 100%;
   display: flex;
-  padding-top: ${(props) => props.pt}px;
-  padding-right: ${(props) => props.pr}px;
-  padding-bottom: ${(props) => props.pb}px;
-  padding-left: ${(props) => props.pl}px;
+  padding-top: ${(props) => (props.pt ? `${props.pt}px` : 0)};
+  padding-right: ${(props) => (props.pr ? `${props.pr}px` : 0)};
+  padding-bottom: ${(props) => (props.pb ? `${props.pb}px` : 0)};
+  padding-left: ${(props) => (props.pl ? `${props.pl}px` : 0)};
 `;
 
 const ContinueButtonComponent = styled.TouchableOpacity<{

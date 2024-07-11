@@ -1,12 +1,5 @@
 import styled from "styled-components/native";
-
-interface TextFieldProps {
-    fs?: number;
-    fw?: number;
-    o?: number;
-    c?: string;
-    children?: any;
-}
+import { TextFieldProps } from "./interfaces";
  
 const TextField = ({fs, fw, o, c, children}:TextFieldProps) => {
     return ( 

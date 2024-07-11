@@ -3,12 +3,8 @@ import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import TextField from "../textField/textField";
-
-interface PreferencesHeaderProps {
-  toggleDrawer: () => void;
-  toggleBack: () => void;
-}
+import TextField from "../../textField/textField";
+import { PreferencesHeaderProps } from "./interfaces";
 
 const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({
   toggleDrawer,

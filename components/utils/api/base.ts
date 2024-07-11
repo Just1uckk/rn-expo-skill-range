@@ -1,20 +1,5 @@
 import API from "./api";
-
-interface RegisterInterface {
-  user: {
-    email: string;
-    password: string;
-    first_name: string;
-    last_name: string;
-    birthday: string;
-  };
-  shouldValidate: boolean;
-  validateOnlyUnique: boolean;
-}
-
-export interface BaseInterface {
-  register: (params: RegisterInterface) => Promise<any>;
-}
+import { BaseInterface, RegisterInterface } from "./apiInterfaces";
 
 const createBody = (params: any) => {
   const body = {

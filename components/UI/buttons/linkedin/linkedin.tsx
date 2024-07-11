@@ -1,19 +1,7 @@
-import { FunctionComponent, ReactElement } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components/native";
-
-interface LinkedinButtonProps extends PaddingProps {
-    title: string;
-    icon?: ReactElement;
-    disabled?: boolean
-    onPress: () => void;
-}
-
-export interface PaddingProps {
-  pt?: number;
-  pb?: number;
-  pl?: number;
-  pr?: number;
-}
+import { LinkedinButtonProps } from "./interfaces";
+import { PaddingProps } from "../../../glogalInterfaces/interfaces";
 
 const LinkedinButton: FunctionComponent<LinkedinButtonProps> = ({
   pt,
@@ -23,7 +11,7 @@ const LinkedinButton: FunctionComponent<LinkedinButtonProps> = ({
   title,
   icon,
   disabled = false,
-  onPress
+  onPress,
 }) => {
   return (
     <LinkedInButtonContainer pt={pt} pb={pb} pl={pl} pr={pr}>
@@ -39,10 +27,10 @@ const LinkedInButtonContainer = styled.View<PaddingProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: ${(props) => props.pt}px;
-  padding-right: ${(props) => props.pr}px;
-  padding-bottom: ${(props) => props.pb}px;
-  padding-left: ${(props) => props.pl}px;
+  padding-top: ${(props) => (props.pt ? `${props.pt}px` : 0)};
+  padding-right: ${(props) => (props.pr ? `${props.pr}px` : 0)};
+  padding-bottom: ${(props) => (props.pb ? `${props.pb}px` : 0)};
+  padding-left: ${(props) => (props.pl ? `${props.pl}px` : 0)};
 `;
 
 const LinkedInButton = styled.TouchableOpacity<{ disabled: boolean }>`

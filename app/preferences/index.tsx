@@ -2,17 +2,15 @@ import { FunctionComponent, useContext, useEffect, useState } from "react";
 import styled from "styled-components/native";
 import PaddingContainer from "../../components/UI/containers/container";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import PreferencesHeader from "../../components/UI/header/preferencesHeader";
+import PreferencesHeader from "../../components/UI/header/preferencesHeader/preferencesHeader";
 import { router } from "expo-router";
-import InterractiveInput from "../../components/UI/input/interractiveInput";
-import ContinueButton from "../../components/UI/buttons/continue";
+import InterractiveInput from "../../components/UI/input/interractiveInput/interractiveInput";
+import ContinueButton from "../../components/UI/buttons/continue/continue";
 import { GlobalContext } from "../../components/utils/state/globalState";
 import TextField from "../../components/UI/textField/textField";
 import { LanguageList } from "../../components/constants/constants";
 
-interface PreferencesProps {}
-
-const Preferences: FunctionComponent<PreferencesProps> = () => {
+const Preferences: FunctionComponent = () => {
   const insets = useSafeAreaInsets();
   const context = useContext(GlobalContext);
 

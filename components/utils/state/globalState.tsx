@@ -1,26 +1,18 @@
 import React, { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+import { GlobalContextInterface, GlobalStateInterface } from './interfaces';
 
-interface GlobalStateType {
-  user: any;
-}
-
-interface GlobalContextType {
-  state: GlobalStateType;
-  setState: Dispatch<SetStateAction<GlobalStateType>>;
-}
-
-const initialState: GlobalStateType = {
+const initialState: GlobalStateInterface = {
   user: null,
 };
 
-export const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
+export const GlobalContext = createContext<GlobalContextInterface | undefined>(undefined);
 
 interface GlobalProviderProps {
   children: ReactNode;
 }
 
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
-  const [state, setState] = useState<GlobalStateType>(initialState);
+  const [state, setState] = useState<GlobalStateInterface>(initialState);
 
   return (
     <GlobalContext.Provider value={{ state, setState }}>

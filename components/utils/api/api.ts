@@ -1,34 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { BaseInterface } from './base';
+import { ApiInterface } from './apiInterfaces';
 
 const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
-
-interface ApiInterface {
-  doGet(
-    endpoint: string,
-    headers?: any,
-    api?: string
-  ): Promise<AxiosResponse<any, any>>;
-  doPatch(
-    endpoint: string,
-    data: any,
-    headers?: any,
-    api?: string
-  ): Promise<AxiosResponse<any, any>>;
-  doPost(
-    endpoint: string,
-    data: any,
-    headers?: any,
-    api?: string
-  ): Promise<AxiosResponse<any, any>>;
-  doPut(
-    endpoint: string,
-    data: any,
-    headers?: any,
-    api?: string
-  ): Promise<AxiosResponse<any, any>>;
-  base?: BaseInterface;
-}
 
 const api = axios.create({
     baseURL: API_BASE_URL,

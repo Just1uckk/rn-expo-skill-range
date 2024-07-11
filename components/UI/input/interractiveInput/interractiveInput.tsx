@@ -1,14 +1,10 @@
 import { FunctionComponent, useState } from "react";
 import styled from "styled-components/native";
-import PaddingContainer from "../containers/container";
+import PaddingContainer from "../../containers/container";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableHighlight } from "react-native";
-
-interface InterractiveInputProps {
-  value: string;
-  handleChange: (newName: string) => void;
-}
+import { InterractiveInputProps } from "./interfaces";
 
 const InterractiveInput: FunctionComponent<InterractiveInputProps> = ({
   value,

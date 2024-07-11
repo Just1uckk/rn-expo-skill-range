@@ -1,11 +1,10 @@
-import { Text, TouchableOpacity, View, TextInput, Button } from "react-native";
-
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import Header from "../components/UI/header/header";
+import Header from "../components/UI/header/header/header";
 import { useContext, useState } from "react";
 import DrawerComponent from "../components/UI/rightDrawer.tsx/rightDrawer";
 import Divider from "../components/UI/divider/divider";
-import LinkedinButton from "../components/UI/buttons/linkedin";
+import LinkedinButton from "../components/UI/buttons/linkedin/linkedin";
 import { AntDesign } from "@expo/vector-icons";
 import PaddingContainer from "../components/UI/containers/container";
 import { router } from "expo-router";
@@ -13,16 +12,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import API from "../components/utils/api";
 import { GlobalContext } from "../components/utils/state/globalState";
 import TextField from "../components/UI/textField/textField";
+import { useContextManager } from "../components/hooks/useContextManager";
 
 export default function AuthPage() {
   const insets = useSafeAreaInsets();
   const context = useContext(GlobalContext);
-
-  if (!context) {
-    throw new Error("SomeComponent must be used within a GlobalProvider");
-  }
-
-  const { state, setState } = context;
+  const {state, setState} = useContextManager(context)
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -32,7 +27,6 @@ export default function AuthPage() {
   const [error, setError] = useState<string | undefined>();
 
   const toggleDrawer = () => {
-    // router.push("/preferences");
     setDrawerOpen(!drawerOpen);
   };
 
@@ -54,7 +48,7 @@ export default function AuthPage() {
         ...state,
         user: response,
       });
-      router.push("/preferences");
+      router.push('/preferences/');
     } else {
       setError(response.error);
     }
@@ -185,7 +179,7 @@ export default function AuthPage() {
 
 const Container = styled.View<{ pt?: number }>`
   height: 100%;
-  padding-top: ${(props) => (`${props.pt}px` ? props.pt : 0)};
+  padding-top: ${(props) => (props.pt ? `${props.pt}px` : 0)};
 `;
 
 const Body = styled.View`

@@ -1,33 +1,6 @@
-import { Children, FunctionComponent, ReactElement } from "react";
-import { PaddingProps } from "../buttons/linkedin";
+import { FunctionComponent } from "react";
 import styled from "styled-components/native";
-
-export type JustifyContentType =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "space-between"
-  | "space-around";
-export type AlignItemsType =
-  | "flex-start"
-  | "flex-end"
-  | "center"
-  | "stretch"
-  | "baseline";
-export type FlexDirectionType =
-  | "row"
-  | "row-reverse"
-  | "column"
-  | "column-reverse";
-export type DisplayType = "flex" | "none";
-
-interface ContainerProps extends PaddingProps {
-  children?: any;
-  jc?: JustifyContentType;
-  ai?: AlignItemsType;
-  fd?: FlexDirectionType;
-  display?: DisplayType;
-}
+import { ContainerProps } from "./interfaces";
 
 const PaddingContainer: FunctionComponent<ContainerProps> = ({
   children,

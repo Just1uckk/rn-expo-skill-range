@@ -2,19 +2,11 @@ import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
-
-interface DrawerComponentProps {
-  drawerOpen: boolean;
-  drawerClose: () => void;
-}
+import { DrawerComponentProps } from "./interfaces";
 
 const DrawerComponent = ({ drawerOpen, drawerClose }: DrawerComponentProps) => {
   return (
     <>
-      <Content>
-        {/* <Button title='Click!' onPress={toggleDrawer}></Button> */}
-      </Content>
-
       {drawerOpen && (
         <Drawer>
           <TouchableOpacity onPress={drawerClose}>
@@ -26,8 +18,6 @@ const DrawerComponent = ({ drawerOpen, drawerClose }: DrawerComponentProps) => {
     </>
   );
 };
-
-const Content = styled.View``;
 
 const Drawer = styled.View`
   position: absolute;

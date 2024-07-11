@@ -9,7 +9,7 @@ interface FontLoaderProps {
 
 const FontLoader = ({ children }: FontLoaderProps) => {
   const [fontsLoaded] = useFonts({
-    'Europa-Regular': require('../../assets/fonts/Europa-Regular.ttf'),
+    'Europa-Regular': require('../../../assets/fonts/Europa-Regular.ttf'),
   });
 
   if (!fontsLoaded) {
