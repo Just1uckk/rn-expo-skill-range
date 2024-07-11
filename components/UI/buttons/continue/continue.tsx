@@ -22,13 +22,13 @@ const ContinueButton: FunctionComponent<ContinueButtonProps> = ({
       "keyboardDidShow",
       () => {
         setKeyboardOpen(true);
-      }
+      },
     );
     const keyboardDidHideListener = Keyboard.addListener(
       "keyboardDidHide",
       () => {
         setKeyboardOpen(false);
-      }
+      },
     );
 
     return () => {

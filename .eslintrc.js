@@ -2,12 +2,12 @@ module.exports = {
   env: {
     es6: true,
   },
-  extends: ["expo", "eslint:recommended"],
+  extends: ["expo", "prettier"],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
   },
-  plugins: ["import"],
+  plugins: ["import", "prettier"],
   rules: {
     camelcase: "off",
     "class-methods-use-this": "off",
@@ -36,11 +36,11 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    // "prettier/prettier": [
-    //   "error",
-    //   {
-    //     endOfLine: "auto",
-    //   },
-    // ],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };

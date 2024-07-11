@@ -8,7 +8,7 @@ import TextField from "../../textField/textField";
 
 import { HeaderProps } from "./interfaces";
 
-const Header: FunctionComponent<HeaderProps> = ({toggleDrawer}) => {
+const Header: FunctionComponent<HeaderProps> = ({ toggleDrawer }) => {
   return (
     <HeaderContainer>
       <LeftColumn>

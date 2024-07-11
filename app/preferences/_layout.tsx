@@ -21,6 +21,6 @@ export default function PreferencesLayout() {
 const BackgroundImage = styled.ImageBackground`
   position: absolute;
   top: 0;
-  height:100%;
+  height: 100%;
   flex: 1;
 `;

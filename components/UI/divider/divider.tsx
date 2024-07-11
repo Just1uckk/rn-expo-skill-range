@@ -5,8 +5,6 @@ import { PaddingProps } from "../../glogalInterfaces/interfaces";
 
 import { DividerProps } from "./interfaces";
 
-
-
 const Divider: FunctionComponent<DividerProps> = ({ text, pt, pb, pl, pr }) => {
   return (
     <DividerContainer pt={pt} pb={pb} pl={pl} pr={pr}>

@@ -18,7 +18,7 @@ import { GlobalContext } from "../components/utils/state/globalState";
 export default function AuthPage() {
   const insets = useSafeAreaInsets();
   const context = useContext(GlobalContext);
-  const {state, setState} = useContextManager(context)
+  const { state, setState } = useContextManager(context);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -49,7 +49,7 @@ export default function AuthPage() {
         ...state,
         user: response,
       });
-      router.push('/preferences/');
+      router.push("/preferences/");
     } else {
       setError(response.error);
     }
@@ -155,21 +155,21 @@ export default function AuthPage() {
         >
           <TextField fs={16}>Already on Skill Range? </TextField>
           <TouchableOpacity>
-            <TextField c={'#21CE99'}>Log in</TextField>
+            <TextField c={"#21CE99"}>Log in</TextField>
           </TouchableOpacity>
         </PaddingContainer>
         <Divider />
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
           <TextField fs={16}>I accept Skill Range's </TextField>
           <TouchableOpacity>
-            <TextField c={'#21CE99'}>Terms of</TextField>
+            <TextField c={"#21CE99"}>Terms of</TextField>
           </TouchableOpacity>
         </PaddingContainer>
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
-          <TextField c={'#21CE99'}>Services</TextField>
+          <TextField c={"#21CE99"}>Services</TextField>
           <TextField fs={16}> and </TextField>
           <TouchableOpacity>
-            <TextField c={'#21CE99'}>Privacy policy</TextField>
+            <TextField c={"#21CE99"}>Privacy policy</TextField>
           </TouchableOpacity>
         </PaddingContainer>
       </Body>

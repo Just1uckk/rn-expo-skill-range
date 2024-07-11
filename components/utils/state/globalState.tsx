@@ -1,12 +1,14 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode } from "react";
 
-import { GlobalContextInterface, GlobalStateInterface } from './interfaces';
+import { GlobalContextInterface, GlobalStateInterface } from "./interfaces";
 
 const initialState: GlobalStateInterface = {
   user: null,
 };
 
-export const GlobalContext = createContext<GlobalContextInterface | undefined>(undefined);
+export const GlobalContext = createContext<GlobalContextInterface | undefined>(
+  undefined,
+);
 
 interface GlobalProviderProps {
   children: ReactNode;

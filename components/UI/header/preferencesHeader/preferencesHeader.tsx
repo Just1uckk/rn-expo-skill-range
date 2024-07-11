@@ -10,21 +10,23 @@ import { PreferencesHeaderProps } from "./interfaces";
 
 const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({
   toggleDrawer,
-  toggleBack
+  toggleBack,
 }) => {
   return (
     <HeaderContainer>
       <HeaderColumn width="15%">
-      <TouchableOpacity onPress={toggleBack}>
-        <MaterialCommunityIcons
-          name="arrow-left-bold-box-outline"
-          size={35}
-          color="white"
-        />
+        <TouchableOpacity onPress={toggleBack}>
+          <MaterialCommunityIcons
+            name="arrow-left-bold-box-outline"
+            size={35}
+            color="white"
+          />
         </TouchableOpacity>
       </HeaderColumn>
       <HeaderColumn width="70%">
-        <TextField fs={20} c={'white'}>Preferences</TextField>
+        <TextField fs={20} c={"white"}>
+          Preferences
+        </TextField>
       </HeaderColumn>
       <HeaderColumn style={{ alignItems: "flex-end" }} width="15%">
         <TouchableOpacity onPress={toggleDrawer}>

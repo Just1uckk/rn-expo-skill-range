@@ -1,4 +1,4 @@
 export interface DrawerComponentProps {
-    drawerOpen: boolean;
-    drawerClose: () => void;
-  }
+  drawerOpen: boolean;
+  drawerClose: () => void;
+}

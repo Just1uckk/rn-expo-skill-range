@@ -1,5 +1,5 @@
-import API from './api';
-import base from './base';
+import API from "./api";
+import base from "./base";
 
 API.base = base;
 

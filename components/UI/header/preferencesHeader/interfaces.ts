@@ -1,4 +1,4 @@
 export interface PreferencesHeaderProps {
-    toggleDrawer: () => void;
-    toggleBack: () => void;
-  }
+  toggleDrawer: () => void;
+  toggleBack: () => void;
+}

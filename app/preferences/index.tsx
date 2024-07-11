@@ -26,10 +26,7 @@ const Preferences: FunctionComponent = () => {
 
   return (
     <Container pt={insets.top}>
-      <PreferencesHeader
-        toggleBack={router.back}
-        toggleDrawer={() => {}}
-      />
+      <PreferencesHeader toggleBack={router.back} toggleDrawer={() => {}} />
       <PaddingContainer pt={75}>
         <TextField fs={20}>What should we call you?</TextField>
       </PaddingContainer>
@@ -48,7 +45,9 @@ const Preferences: FunctionComponent = () => {
               setCard(element.id);
             }}
           >
-            <TextField fs={18} c={(card === element.id) ? "white" : "#0F0F0F"}>{element.title}</TextField>
+            <TextField fs={18} c={card === element.id ? "white" : "#0F0F0F"}>
+              {element.title}
+            </TextField>
           </Card>
         ))}
       </CardContainer>

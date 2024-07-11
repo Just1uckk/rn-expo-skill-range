@@ -4,25 +4,25 @@ export interface ApiInterface {
   doGet(
     endpoint: string,
     headers?: any,
-    api?: string
+    api?: string,
   ): Promise<AxiosResponse<any, any>>;
   doPatch(
     endpoint: string,
     data: any,
     headers?: any,
-    api?: string
+    api?: string,
   ): Promise<AxiosResponse<any, any>>;
   doPost(
     endpoint: string,
     data: any,
     headers?: any,
-    api?: string
+    api?: string,
   ): Promise<AxiosResponse<any, any>>;
   doPut(
     endpoint: string,
     data: any,
     headers?: any,
-    api?: string
+    api?: string,
   ): Promise<AxiosResponse<any, any>>;
   base?: BaseInterface;
 }
