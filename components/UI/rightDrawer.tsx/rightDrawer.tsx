@@ -1,7 +1,8 @@
+import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { AntDesign } from "@expo/vector-icons";
+
 import { DrawerComponentProps } from "./interfaces";
 
 const DrawerComponent = ({ drawerOpen, drawerClose }: DrawerComponentProps) => {

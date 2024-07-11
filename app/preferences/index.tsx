@@ -1,14 +1,15 @@
-import { FunctionComponent, useContext, useEffect, useState } from "react";
-import styled from "styled-components/native";
-import PaddingContainer from "../../components/UI/containers/container";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import PreferencesHeader from "../../components/UI/header/preferencesHeader/preferencesHeader";
 import { router } from "expo-router";
-import InterractiveInput from "../../components/UI/input/interractiveInput/interractiveInput";
-import ContinueButton from "../../components/UI/buttons/continue/continue";
-import { GlobalContext } from "../../components/utils/state/globalState";
-import TextField from "../../components/UI/textField/textField";
+import { FunctionComponent, useContext, useState } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import styled from "styled-components/native";
+
 import { LanguageList } from "../../components/constants/constants";
+import ContinueButton from "../../components/UI/buttons/continue/continue";
+import PaddingContainer from "../../components/UI/containers/container";
+import PreferencesHeader from "../../components/UI/header/preferencesHeader/preferencesHeader";
+import InterractiveInput from "../../components/UI/input/interractiveInput/interractiveInput";
+import TextField from "../../components/UI/textField/textField";
+import { GlobalContext } from "../../components/utils/state/globalState";
 
 const Preferences: FunctionComponent = () => {
   const insets = useSafeAreaInsets();
@@ -18,7 +19,7 @@ const Preferences: FunctionComponent = () => {
     throw new Error("SomeComponent must be used within a GlobalProvider");
   }
 
-  const { state, setState } = context;
+  const { state } = context;
 
   const [name, setName] = useState(state.user ? state.user.first_name : "");
   const [card, setCard] = useState(LanguageList[0].id);

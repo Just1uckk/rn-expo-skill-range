@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components/native";
+
 import { ContainerProps } from "./interfaces";
 
 const PaddingContainer: FunctionComponent<ContainerProps> = ({

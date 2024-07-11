@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components/native";
+
 import { PaddingProps } from "../../glogalInterfaces/interfaces";
+
 import { DividerProps } from "./interfaces";
 
 

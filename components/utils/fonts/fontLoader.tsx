@@ -1,6 +1,5 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import * as Font from 'expo-font';
 import { useFonts } from 'expo-font';
+import React from 'react';
 import { View, Text } from 'react-native';
 
 interface FontLoaderProps {

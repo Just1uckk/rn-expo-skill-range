@@ -1,9 +1,11 @@
-import { FunctionComponent } from "react";
-import styled from "styled-components/native";
 import { FontAwesome } from "@expo/vector-icons";
+import { FunctionComponent } from "react";
 import { TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
+
 import SkillRangeLogo from "../../../icons/SkillRangeLogo";
 import TextField from "../../textField/textField";
+
 import { HeaderProps } from "./interfaces";
 
 const Header: FunctionComponent<HeaderProps> = ({toggleDrawer}) => {

@@ -1,9 +1,11 @@
-import { FunctionComponent, useState } from "react";
-import styled from "styled-components/native";
-import PaddingContainer from "../../containers/container";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { FunctionComponent, useState } from "react";
 import { TouchableHighlight } from "react-native";
+import styled from "styled-components/native";
+
+import PaddingContainer from "../../containers/container";
+
 import { InterractiveInputProps } from "./interfaces";
 
 const InterractiveInput: FunctionComponent<InterractiveInputProps> = ({

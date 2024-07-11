@@ -1,9 +1,11 @@
-import { FunctionComponent } from "react";
-import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { FunctionComponent } from "react";
+import { TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
+
 import TextField from "../../textField/textField";
+
 import { PreferencesHeaderProps } from "./interfaces";
 
 const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({

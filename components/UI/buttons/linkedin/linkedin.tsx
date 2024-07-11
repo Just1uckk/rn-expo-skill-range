@@ -1,7 +1,9 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components/native";
-import { LinkedinButtonProps } from "./interfaces";
+
 import { PaddingProps } from "../../../glogalInterfaces/interfaces";
+
+import { LinkedinButtonProps } from "./interfaces";
 
 const LinkedinButton: FunctionComponent<LinkedinButtonProps> = ({
   pt,

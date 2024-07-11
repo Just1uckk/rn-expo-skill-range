@@ -1,4 +1,5 @@
-import React, { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useState, ReactNode } from 'react';
+
 import { GlobalContextInterface, GlobalStateInterface } from './interfaces';
 
 const initialState: GlobalStateInterface = {

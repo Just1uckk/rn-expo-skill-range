@@ -1,7 +1,9 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import styled from "styled-components/native";
-import { PaddingProps } from "../../../glogalInterfaces/interfaces";
 import { Keyboard } from "react-native";
+import styled from "styled-components/native";
+
+import { PaddingProps } from "../../../glogalInterfaces/interfaces";
+
 import { ContinueButtonProps } from "./interfaces";
 
 const ContinueButton: FunctionComponent<ContinueButtonProps> = ({

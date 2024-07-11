@@ -1,8 +1,9 @@
 import { Slot } from "expo-router";
-import FontLoader from "../components/utils/fonts/fontLoader";
-import styled, { ThemeProvider } from "styled-components/native";
-import { theme } from "../components/theme/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import styled, { ThemeProvider } from "styled-components/native";
+
+import { theme } from "../components/theme/theme";
+import FontLoader from "../components/utils/fonts/fontLoader";
 import { GlobalProvider } from "../components/utils/state/globalState";
 
 interface LayoutSafeAreaProps {

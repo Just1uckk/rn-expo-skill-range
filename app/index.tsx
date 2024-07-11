@@ -1,18 +1,19 @@
-import { TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
-import Header from "../components/UI/header/header/header";
-import { useContext, useState } from "react";
-import DrawerComponent from "../components/UI/rightDrawer.tsx/rightDrawer";
-import Divider from "../components/UI/divider/divider";
-import LinkedinButton from "../components/UI/buttons/linkedin/linkedin";
 import { AntDesign } from "@expo/vector-icons";
-import PaddingContainer from "../components/UI/containers/container";
 import { router } from "expo-router";
+import { useContext, useState } from "react";
+import { TouchableOpacity } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import styled from "styled-components/native";
+
+import { useContextManager } from "../components/hooks/useContextManager";
+import LinkedinButton from "../components/UI/buttons/linkedin/linkedin";
+import PaddingContainer from "../components/UI/containers/container";
+import Divider from "../components/UI/divider/divider";
+import Header from "../components/UI/header/header/header";
+import DrawerComponent from "../components/UI/rightDrawer.tsx/rightDrawer";
+import TextField from "../components/UI/textField/textField";
 import API from "../components/utils/api";
 import { GlobalContext } from "../components/utils/state/globalState";
-import TextField from "../components/UI/textField/textField";
-import { useContextManager } from "../components/hooks/useContextManager";
 
 export default function AuthPage() {
   const insets = useSafeAreaInsets();

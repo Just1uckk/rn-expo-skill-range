@@ -1,4 +1,5 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
+
 import { ApiInterface } from './apiInterfaces';
 
 const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
