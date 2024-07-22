@@ -29,6 +29,7 @@
     "eslint": "^8.57.0",
     "expo": "^50.0.18",
     "expo-constants": "~15.4.6",
+    "expo-dev-client": "~3.3.12",
     "expo-font": "~11.10.3",
     "expo-linking": "~6.2.2",
     "expo-router": "~3.4.10",

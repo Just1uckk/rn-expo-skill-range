@@ -18,13 +18,13 @@ export default function MainLayout() {
 
   return (
     <FontLoader>
-      <GlobalProvider>
+      {/* <GlobalProvider> */}
         <ThemeProvider theme={theme}>
-          <LayoutSafeArea pb={insets.bottom} pl={insets.left} pr={insets.right}>
+          {/* <LayoutSafeArea pb={insets.bottom} pl={insets.left} pr={insets.right}> */}
             <Slot />
-          </LayoutSafeArea>
+          {/* </LayoutSafeArea> */}
         </ThemeProvider>
-      </GlobalProvider>
+      {/* </GlobalProvider> */}
     </FontLoader>
   );
 }

@@ -19,7 +19,7 @@ const FontLoader = ({ children }: FontLoaderProps) => {
     );
   }
 
-  return children;
+  return <>{children}</>;
 };
 
 export default FontLoader;
