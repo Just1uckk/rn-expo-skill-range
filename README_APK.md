@@ -2,7 +2,7 @@
 
 This is an [Expo](https://expo.dev) project. Created to demonstrate the functionality of a mobile application. The application consists of 2 pages of a full-fledged mobile application.
 
-## How to install?
+## How to install APK file on android?
 
 1. Download apk file (*skill-range.apk*) file from *../apk* (from this repository) on your android device.
 

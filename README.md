@@ -8,6 +8,8 @@ This is an [Expo](https://expo.dev) project. Created to demonstrate the function
 
    [Expo Go Application](https://expo.dev/go)
 
+2. Clone this repository on your personal machine.
+
 2. Install dependenses
 
    ```bash
