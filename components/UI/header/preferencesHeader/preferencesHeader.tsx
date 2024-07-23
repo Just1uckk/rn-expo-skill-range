@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { FunctionComponent } from "react";
-import { TouchableOpacity } from "react-native";
+import { Pressable } from "react-native";
 import styled from "styled-components/native";
 
 import TextField from "../../textField/textField";
@@ -15,13 +15,13 @@ const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({
   return (
     <HeaderContainer>
       <HeaderColumn width="15%">
-        <TouchableOpacity onPress={toggleBack}>
+        <Pressable onPress={toggleBack}>
           <MaterialCommunityIcons
             name="arrow-left-bold-box-outline"
             size={35}
             color="white"
           />
-        </TouchableOpacity>
+        </Pressable>
       </HeaderColumn>
       <HeaderColumn width="70%">
         <TextField fs={20} c={"white"}>
@@ -29,9 +29,9 @@ const PreferencesHeader: FunctionComponent<PreferencesHeaderProps> = ({
         </TextField>
       </HeaderColumn>
       <HeaderColumn style={{ alignItems: "flex-end" }} width="15%">
-        <TouchableOpacity onPress={toggleDrawer}>
+        <Pressable onPress={toggleDrawer}>
           <FontAwesome name="list-ul" size={20} color="white" />
-        </TouchableOpacity>
+        </Pressable>
       </HeaderColumn>
     </HeaderContainer>
   );

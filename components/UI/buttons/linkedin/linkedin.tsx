@@ -35,7 +35,7 @@ const LinkedInButtonContainer = styled.View<PaddingProps>`
   padding-left: ${(props) => (props.pl ? `${props.pl}px` : 0)};
 `;
 
-const LinkedInButton = styled.TouchableOpacity<{ disabled: boolean }>`
+const LinkedInButton = styled.Pressable<{ disabled: boolean }>`
   background-color: ${(props) => (props.disabled ? "lightgray" : "#0077B5")};
   width: 90%;
   padding: 18px;

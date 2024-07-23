@@ -57,7 +57,7 @@ const ContinueButtonContainer = styled.View<PaddingProps>`
   padding-left: ${(props) => (props.pl ? `${props.pl}px` : 0)};
 `;
 
-const ContinueButtonComponent = styled.TouchableOpacity<{
+const ContinueButtonComponent = styled.Pressable<{
   disabled: boolean;
   isHide: boolean;
 }>`
