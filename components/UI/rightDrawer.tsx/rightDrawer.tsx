@@ -1,6 +1,6 @@
 import { AntDesign } from "@expo/vector-icons";
 import React from "react";
-import { Text, Pressable } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import { DrawerComponentProps } from "./interfaces";
@@ -10,9 +10,9 @@ const DrawerComponent = ({ drawerOpen, drawerClose }: DrawerComponentProps) => {
     <>
       {drawerOpen && (
         <Drawer>
-          <Pressable onPress={drawerClose}>
+          <TouchableOpacity onPress={drawerClose}>
             <AntDesign name="close" size={20} color="black" />
-          </Pressable>
+          </TouchableOpacity>
           <Text>Drawer Content</Text>
         </Drawer>
       )}

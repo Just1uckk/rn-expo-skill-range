@@ -1,6 +1,6 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { FunctionComponent } from "react";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import SkillRangeLogo from "../../../icons/SkillRangeLogo";
@@ -18,9 +18,9 @@ const Header: FunctionComponent<HeaderProps> = ({ toggleDrawer }) => {
         <TextField fs={20}>SKILLRANGE</TextField>
       </CenterColumn>
       <RightColumn>
-        <Pressable onPress={toggleDrawer}>
+        <TouchableOpacity onPress={toggleDrawer}>
           <FontAwesome name="list-ul" size={20} color="black" />
-        </Pressable>
+        </TouchableOpacity>
       </RightColumn>
     </HeaderContainer>
   );

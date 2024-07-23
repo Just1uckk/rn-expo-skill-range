@@ -1,7 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useContext, useState } from "react";
-import { Pressable, View, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
@@ -154,23 +154,23 @@ export default function AuthPage() {
           pt={20}
         >
           <TextField fs={16}>Already on Skill Range? </TextField>
-          <Pressable>
+          <TouchableOpacity>
             <TextField c={"#21CE99"}>Log in</TextField>
-          </Pressable>
+          </TouchableOpacity>
         </PaddingContainer>
         <Divider />
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
           <TextField fs={16}>I accept Skill Range's </TextField>
-          <Pressable>
+          <TouchableOpacity>
             <TextField c={"#21CE99"}>Terms of</TextField>
-          </Pressable>
+          </TouchableOpacity>
         </PaddingContainer>
         <PaddingContainer display="flex" fd="row" jc="center" ai="center">
           <TextField c={"#21CE99"}>Services</TextField>
           <TextField fs={16}> and </TextField>
-          <Pressable>
+          <TouchableOpacity>
             <TextField c={"#21CE99"}>Privacy policy</TextField>
-          </Pressable>
+          </TouchableOpacity>
         </PaddingContainer>
       </Body>
       {/* <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} /> */}
@@ -199,7 +199,7 @@ const InputField = styled.TextInput`
   font-family: ${(props) => props.theme.fonts.main};
 `;
 
-const JoinButton = styled.Pressable<{ disabled: boolean }>`
+const JoinButton = styled.TouchableOpacity<{ disabled: boolean }>`
   background-color: ${(props) => (props.disabled ? "lightgray" : "#21CE99")};
   width: 90%;
   padding: 18px;
