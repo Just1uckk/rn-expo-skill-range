@@ -14,11 +14,15 @@ This is an [Expo](https://expo.dev) project. Created to demonstrate the function
     npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
     npx expo start
    ```
+
+4. After this you can open Expo Application and connect to the application.
+
+*Notice: you must be in one internet connection from your personal machine and mobile device*
 
 ## About project
 The project is a mobile application developed at the Expo. The application demonstrates the functionality of two pages: an authorization page and a settings page.
