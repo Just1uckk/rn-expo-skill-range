@@ -57,10 +57,7 @@ export default function AuthPage() {
 
   return (
     <Container pt={insets.top}>
-      <View>
-      <Text>123</Text>
-      </View>
-      {/* <Header toggleDrawer={toggleDrawer} />
+      {/* <Header toggleDrawer={toggleDrawer} /> */}
       <Body>
         <PaddingContainer display="flex" ai="center">
           <TextField fs={24}>Sign up to get started</TextField>
@@ -176,7 +173,7 @@ export default function AuthPage() {
           </Pressable>
         </PaddingContainer>
       </Body>
-      <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} /> */}
+      {/* <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} /> */}
     </Container>
   );
 }
