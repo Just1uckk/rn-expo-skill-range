@@ -1,7 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useContext, useState } from "react";
-import { Pressable } from "react-native";
+import { Pressable, View, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
@@ -57,7 +57,10 @@ export default function AuthPage() {
 
   return (
     <Container pt={insets.top}>
-      <Header toggleDrawer={toggleDrawer} />
+      <View>
+      <Text>123</Text>
+      </View>
+      {/* <Header toggleDrawer={toggleDrawer} />
       <Body>
         <PaddingContainer display="flex" ai="center">
           <TextField fs={24}>Sign up to get started</TextField>
@@ -173,7 +176,7 @@ export default function AuthPage() {
           </Pressable>
         </PaddingContainer>
       </Body>
-      <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} />
+      <DrawerComponent drawerClose={toggleDrawer} drawerOpen={drawerOpen} /> */}
     </Container>
   );
 }
